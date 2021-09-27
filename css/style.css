@@ -1,6 +1,16 @@
 /* Google Font Lato  */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
 
+:root {
+    --yellow-color: #f9d806;
+    --light-yellow-color: #ffee80;
+    --light-color: #666;
+    --black-color: #130f40;
+    --border: 0.15rem solid rgba(0, 0, 0, 0.1);
+    --box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+
 * {
     font-family: 'Lato', sans-serif;
     margin: 0;
@@ -13,9 +23,922 @@
     transition: all 0.2s linear;
 }
 
+*::selection {
+    background: var(--yellow-color);
+    color: #fff;
+}
+
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
     scroll-padding-top: 7rem;
-    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.btn {
+    margin-top: 1.5rem;
+    background: var(--light-yellow-color);
+    color: var(--black-color);
+    font-size: 1.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.8rem 3rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+}
+.btn:hover {
+    background: var(--yellow-color);
+}
+
+section {
+    padding: 5rem 10%;
+}
+
+h1.heading {
+    text-align: center;
+    color: var(--black-color);
+    font-size: 4.8rem;
+    margin-bottom: 2rem;
+}
+h1.heading span {
+    position: relative;
+    z-index: 0;
+}
+h1.heading span::before {
+    content: '';
+    position: absolute;
+    bottom: 0.6rem;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: var(--yellow-color);
+    clip-path: polygon(0 90%, 100% 80%, 100% 100%, 0 100%);
+}
+.swiper-pagination-bullet-active {
+    background: var(--yellow-color);
+}
+
+
+/* CSS Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 3rem 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+}
+.header.active {
+    z-index: 1000;
+    padding: 2.3rem 8.5%;
+    box-shadow: var(--box-shadow);
+}
+.header .logo {
+    font-size: 2.6rem;
+    color: var(--black-color);
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+}
+.header .logo i {
+    margin-left: 1rem;
+    color: var(--yellow-color);
+}
+.header .logo span {
+    color: var(--yellow-color);
+}
+.header .navbar a {
+    font-size: 2.2rem;
+    color: var(--black-color);
+    margin-left: 1.5rem;
+}
+.header .navbar a:first-child {
+    margin-left: 0;
+}
+.header .navbar a:hover {
+    color: var(--yellow-color);
+}
+.header #btn-login .btn {
+    margin-top: 0rem;
+}
+.header #btn-login i {
+    font-size: 2.5rem;
+    color: var(--light-color);
+    cursor: pointer;
+    display: none;
+}
+.header #menu-bar {
+    display: none;
+}
+.header #menu-bar i {
+    font-size: 2.5rem;
+    color: var(--black-color);
+    cursor: pointer;
+    border: 0.2rem solid var(--black-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+}
+
+/* CSS Login Form */
+.login-form-container {
+    position: fixed;
+    top: -110%;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.3s linear;
+}
+.login-form-container.active {
+    top: 0;
+    opacity: 1;
+}
+.login-form-container form {
+    background: #fff;
+    padding: 2.5rem 3rem;
+    border-radius: 0.4rem;
+    box-shadow: var(--box-shadow);
+    border: var(--border);
+    width: 40rem;
+}
+.login-form-container form h3 {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--black-color);
+}
+.login-form-container form .form-control {
+    width: 100%;
+    border: var(--border);
+    padding: 0.9rem 2rem;
+    background: #eee;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    margin-bottom: 1.5rem;
+    text-transform: none;
+}
+.login-form-container form p {
+    font-size: 1.4rem;
+    color: var(--light-color);
+    margin-bottom: 1rem;
+}
+.login-form-container form span {
+    font-size: 1.5rem;
+    color: var(--black-color);
+    display: flex;
+    justify-content: center;
+}
+.login-form-container form p a {
+    color: var(--black-color);
+    font-weight: 700;
+    font-style: italic;
+}
+.login-form-container form p a:hover {
+    color: var(--yellow-color);
+    text-decoration: underline;
+}
+.login-form-container form .btn {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+.login-form-container form .buttons {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.login-form-container form .buttons .btn {
+    text-align: center;
+}
+.login-form-container #btn-close-form {
+    font-size: 5.5rem;
+    color: var(--black-color);
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+.login-form-container #btn-close-form:hover {
+    color: var(--yellow-color);
+    transform: rotate3d(0, 1, 0.5, 3.142rad);
+}
+
+/* CSS Home */
+.home {
+    padding-top: 10rem;
+    text-align: center;
+    overflow-x: hidden;
+}
+.home h1 {
+    font-size: 5vw;
+    text-transform: uppercase;
+    color: var(--black-color);
+    font-weight: 900;
+    margin: 3rem;
+}
+.home img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 3rem;
+}
+
+/* CSS Statisticals */
+.statisticals {
+    background: #eee;
+}
+.statisticals .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+.statisticals .box-container .box-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem 2.5rem;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}
+.statisticals .box-container .box-icons i {
+    color: var(--black-color);
+    font-size: 2.8rem;
+    height: 5rem;
+    width: 5rem;
+    background: #eee;
+    text-align: center;
+    line-height: 5rem;
+    border-radius: 50%;
+}
+.statisticals .box-container .box-icons .content h4 {
+    color: var(--yellow-color);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+.statisticals .box-container .box-icons .content p {
+    color: var(--light-color);
+    font-size: 1.6rem;
+}
+.statisticals .box-container .box-icons:hover {
+    background: var(--black-color);
+}
+.statisticals .box-container .box-icons:hover i {
+    background: var(--yellow-color);
+}
+.statisticals .box-container .box-icons:hover .content h4 {
+    color: #fff;
+}
+.statisticals .box-container .box-icons:hover .content p {
+    color: #eee;
+}
+
+/* CSS Vehicles */
+.vehicles .vehicles-slider {
+    padding-bottom: 4rem;
+}
+.vehicles .vehicles-slider .box {
+    width: 30rem;
+    text-align: center;
+}
+.vehicles .vehicles-slider .box img {
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    transform: scale(0.8);
+}
+.vehicles .vehicles-slider .box .content {
+    transform: scale(0);
+    padding-top: 1rem;
+}
+.vehicles .vehicles-slider .swiper-slide-active img {
+    opacity: 1;
+    transform: scale(1);
+}
+.vehicles .vehicles-slider .swiper-slide-active .content {
+    transform: scale(1);
+}
+.vehicles .vehicles-slider .box .content h3 {
+    font-size: 2.5rem;
+    color: var(--black-color);
+    margin-bottom: 0.8rem;
+}
+.vehicles .vehicles-slider .box .content .price {
+    font-size: 1.6rem;
+    color: var(--light-color);
+    margin-bottom: 0.8rem;
+}
+.vehicles .vehicles-slider .box .content .price span {
+    font-size: 2.4rem;
+    color: var(--yellow-color);
+    font-weight: 800;
+}
+.vehicles .vehicles-slider .box .content p {
+    font-size: 1.5rem;
+    color: var(--light-color);
+    border: var(--border);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+.vehicles .vehicles-slider .box .content p span {
+    margin: 0 0.5rem;
+    line-height: 1.7;
+}
+.vehicles .vehicles-slider .box .content p span i {
+    font-size: 1rem;
+    color: var(--yellow-color);
+    margin-right: 0.5rem;
+    display: inline-block;
+}
+.vehicles .vehicles-slider .box .content .btn {
+    margin-top: 2.5rem;
+    display: inline-block;
+}
+.swiper-pagination-bullet-active {
+    background: var(--yellow-color);
+}
+
+/* CSS Services */
+.services .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+}
+.services .box-container .box {
+    text-align: center;
+    padding: 2rem 2.5rem;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+    transition: 0.5s ease;
+}
+.services .box-container .box:hover {
+    background: var(--black-color);
+}
+.services .box-container .box i {
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    font-size: 3rem;
+    background: var(--yellow-color);
+    color: var(--black-color);
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+}
+.services .box-container .box:hover i {
+    color: #fff;
+}
+.services .box-container .box h4 {
+    color: var(--black-color);
+    font-size: 2.2rem;
+}
+.services .box-container .box:hover h4 {
+    color: #fff;
+}
+.services .box-container .box p {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    line-height: 1.8;
+    margin: 0.5rem;
+}
+.services .box-container .box:hover p {
+    color: #eee;
+}
+
+/* CSS Features */
+.features .features-sliders {
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+.features .features-sliders .box {
+    text-align: center;
+    border: var(--border);
+    border-radius: var(--box-shadow);
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+}
+.features .features-sliders .box img {
+    width: 100%;
+    height: 19rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+.features .features-sliders .box:hover img {
+    transform: scale(0.9);
+}
+.features .features-sliders .box .content h3 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: var(--black-color)
+}
+.features .features-sliders .box .content .rating i {
+    font-size: 1.7rem;
+    color: gold;
+}
+.features .features-sliders .box .content .price {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    color: var(--light-color);
+}
+.features .features-sliders .box .content .price span {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: rgb(179, 17, 17);
+    margin-left: 0.5rem;
+}
+.features .features-sliders .box .content .btn {
+    margin-top: 0.5rem;
+}
+
+/* CSS Newsletter */
+.newsletter {
+    padding: 6rem 3.5rem;
+    text-align: center;
+    background: url(../images/letter-bg.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.newsletter h2 {
+    font-size: 3.5rem;
+    color: var(--black-color);
+}
+.newsletter p {
+    font-size: 1.7rem;
+    color: var(--light-color);
+    padding: 1.5rem 0;
+}
+.newsletter form {
+    max-width: 60rem;
+    height: 5rem;
+    display: flex;
+    margin: 1rem auto;
+    box-shadow: var(--box-shadow);
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.newsletter form input[type="email"] {
+    width: 100%;
+    height: 100%;
+    font-size: 1.7rem;
+    color: var(--black-color);
+    text-transform: none;
+    padding: 0 2rem;
+    
+}
+.newsletter form input[type="submit"] {
+    height: 100%;
+    width: 12rem;
+    font-size: 1.7rem;
+    color:var(--black-color);
+    background: var(--light-yellow-color);
+    cursor: pointer;
+    font-weight: 700;
+}
+.newsletter form input[type="submit"]:hover {
+    background: var(--yellow-color);
+}
+
+/* CSS Reviews */
+.reviews .reviews-sliders {
+    padding-bottom: 3rem;
+}
+.reviews .reviews-sliders .box {
+    padding: 2rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    
+    opacity: 0.5;
+    transform: scale(0.9);
+}
+.reviews .reviews-sliders .box.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    border: var(--border);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+}
+.reviews .reviews-sliders .box img {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--box-shadow);
+}
+.reviews .reviews-sliders .box .content p {
+    font-size: 1.6rem;
+    color: var(--light-color);
+    margin: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.reviews .reviews-sliders .box .content h3 {
+    font-size: 2rem;
+    color: var(--black-color);
+    margin-bottom: 1rem;
+}
+.reviews .reviews-sliders .box .content .review-star i {
+    font-size: 1.8rem;
+    color: gold;
+    margin: 0 0.2rem;
+}
+
+/* CSS Contact */
+.contact .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+.contact .box-container .map-contact {
+    flex: 1 1 40rem;
+    width: 100%;
+    padding: 1.5rem;
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+}
+.contact .box-container form {
+    flex: 1 1 40rem;
+    width: 100%;
+    padding: 1.5rem;
+    border: var(--border);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+}
+.contact .box-container form h3 {
+    text-align: center;
+    font-size: 2.7rem;
+    color: var(--black-color);
+    margin-bottom: 1rem;
+}
+.contact .box-container form .form-control, textarea {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    border-radius: 0.5rem;
+    border: var(--border);
+    font-size: 1.6rem;
+    color: var(--black-color);
+    text-transform: none;
+    margin-bottom: 1.5rem;
+    background: #eee;
+}
+.contact .box-container form .form-control:focus {
+    background: var(--light-yellow-color);
+    border: 0.1rem solid var(--yellow-color);
+}
+.contact .box-container form textarea {
+    height: 15rem;
+    margin-bottom: 0rem;
+    resize: none;
+}
+
+/* CSS Footer */
+.footer {
+    background: var(--light-yellow-color);
+    padding: 4rem 10%;
+}
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
+    gap: 1.5rem;
+}
+.footer .box-container .box h3 {
+    font-size: 2.5rem;
+    color: var(--black-color);
+    margin-bottom: 1.8rem;
+}
+.footer .box-container .box a {
+    font-size: 1.6rem;
+    color: var(--black-color);
+    margin-bottom: 1rem;
+    display: block;
+}
+.footer .box-container .box a i {
+    padding-right: 0.5rem;
+}
+.footer .box-container .box a:hover i {
+    padding-right: 1.2rem;
+}
+.footer .box-container .box a:hover {
+    text-decoration: underline;
+    color: var(--light-color);
+}
+.footer .box-container .box address, p {
+    font-size: 1.6rem;
+    color: var(--black-color);
+    margin-bottom: 1.5rem;
+}
+.footer .box-container .box address i, p i {
+    margin-right: 1rem;
+    font-size: 1.8rem;
+}
+.footer .box-container .box p a {
+    display: inline-block;
+    text-transform: none;
+}
+.footer .box-container .box .socials {
+    display: flex;
+    align-items: center;
+}
+.footer .box-container .box .socials a i {
+    width: 5rem;
+    height: 5rem;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.6rem;
+    padding-right: 0;
+    margin-right: 1rem;
+}
+.footer .box-container .box .socials a:hover {
+    text-decoration: none;
+}
+.footer .box-container .box .socials a:hover i {
+    color: #fff;
+    transform: scale(0.9) rotate(20deg);
+}
+.footer .box-container .box .socials a:nth-child(1):hover i {
+    background: #1877F2;
+    box-shadow: 0 0.3rem 0.6rem #1877F2;
+}
+.footer .box-container .box .socials a:nth-child(2):hover i {
+    background: #0099FF;
+    box-shadow: 0 0.3rem 0.6rem #0099FF;
+}
+.footer .box-container .box .socials a:nth-child(3):hover i {
+    background: #E4405F;
+    box-shadow: 0 0.3rem 0.6rem #E4405F;
+}
+.footer .box-container .box .socials a:nth-child(4):hover i {
+    background: #1DA1F2;
+    box-shadow: 0 0.3rem 0.6rem #1DA1F2;
+}
+.footer .box-container .box .socials a:nth-child(5):hover i {
+    background: #34465D;
+    box-shadow: 0 0.3rem 0.6rem #34465D;
+}
+.footer .credit-footer p {
+    text-align: center;
+    font-size: 2.1rem;
+    color: var(--black-color);
+    margin-top: 2rem;
+    border-top: var(--border);
+    padding-top: 3rem;
+}
+.footer .credit-footer p span {
+    color: red;
+    font-style: italic;
+}
+
+/* CSS Scroll To Top */
+.scroll-top i {
+    position: fixed;
+    top: -110%;
+    right: 4rem;
+    z-index: 10000;
+    font-size: 3.3rem;
+    color: #fff;
+    background: var(--black-color);
+    border-radius: 50%;
+    padding: 0.9rem 1.2rem;
+    border: 0.2rem solid #fff;
+    cursor: pointer;
+    transition: 0.3s linear;
+    opacity: 0;
+}
+.scroll-top i.active {
+    top: calc(100% - 11rem);
+    opacity: 1;
+}
+.scroll-top i:hover {
+    color: var(--black-color);
+    background: var(--yellow-color);
+    border: 0.2rem dashed var(--black-color);
+}
+
+/* CSS Loading-page */
+#loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #c7dbf2, #fdbcc9);
+}
+#loading-page.active {
+    top: -110%;
+}
+#loading-page img {
+    width: 30rem;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 2rem;
+}
+
+
+
+
+
+/* Responsive media queries */
+@media (max-width: 1025px) {
+    html {
+        font-size: 59.5%;
+    }
+    section {
+        padding: 4rem 7.5%;
+    }
+
+    .header {
+        padding: 2.7rem 7.5%;
+    }
+    .header.active {
+        padding: 2rem 6.5%;
+        box-shadow: var(--box-shadow);
+    }
+}
+
+@media (max-width: 991px) {
+    html {
+        font-size: 57.5%;
+    }
+    section {
+        padding: 3rem 6.5%;
+    }
+
+    .header {
+        padding: 2.6rem 6.5%;
+    }
+    .header.active {
+        padding: 2rem 5.5%;
+        box-shadow: var(--box-shadow);
+    }
+    .scroll-top i {
+        right: 3rem;
+        font-size: 3.1rem;
+        padding: 0.8rem 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 54.5%;
+    }
+    section {
+        padding: 2rem 4%;
+    }
+    h1.heading {
+        font-size: 4rem;
+    }
+
+    .header {
+        padding: 2.7rem 4%;
+    }
+    .header #btn-login i {
+        display: block;
+    }
+    .header #btn-login .btn {
+        display: none;
+    }
+    .header .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0; right: 0;
+        background: #fff;
+        border-top: var(--border);
+        padding-top: 1.2rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    .header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .header .navbar a {
+        display: block;
+        font-size: 2.3rem;
+        margin: 1rem 2rem;
+        padding: 1rem 1.5rem;
+    }
+    .header .navbar a:hover {
+        background: var(--light-yellow-color);
+        color: var(--light-color);
+        border-radius: 0.5rem;
+        border-left: 1rem solid var(--yellow-color);
+    }
+    .header .navbar a:first-child {
+        margin-left: 2rem;
+    }
+    .header #menu-bar {
+        display: block;
+    }
+    .header #menu-bar i.fa-times {
+        transform: rotate(180deg);
+    }
+
+    .login-form-container #btn-close-form {
+        font-size: 4.5rem;
+        top: 2rem;
+        right: 3rem;
+    }
+
+    .home {
+        padding-top: 6rem;
+    }
+
+    .newsletter h2 {
+        font-size: 3rem;
+    }
+    .newsletter p {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 601px) {
+    html {
+        font-size: 52.5%;
+    }
+    section {
+        padding: 3rem 3%;
+    }
+    h1.heading {
+        font-size: 3.6rem;
+    }
+
+    .header {
+        padding: 2.7rem 3%;
+    }
+
+    .login-form-container #btn-close-form {
+        font-size: 4rem;
+        top: 2rem;
+        right: 3rem;
+    }
+
+    .statisticals .box-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .newsletter h2 {
+        font-size: 2.8rem;
+    }
+
+    .contact .box-container {
+        padding: 1rem 3rem;
+    }
+    .scroll-top i {
+        right: 2.5rem;
+        font-size: 3rem;
+        padding: 0.6rem 1rem;
+    }
+}
+
+@media (max-width: 420px) {
+    html {
+        font-size: 50.5%;
+    }
+    h1.heading {
+        font-size: 3.4rem;
+    }
+
+    .statisticals .box-container {
+        padding: 2rem 4.5rem;
+    }
+
+    .services .box-container {
+        padding: 1rem 4.5rem;
+    }
+
+    .features .features-sliders {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        padding-top: 0.5rem;
+        padding-bottom: 4rem;
+    }
+
+    .newsletter h2 {
+        font-size: 2.4rem;
+    }
+
+    .reviews .reviews-sliders {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        padding-bottom: 3rem;
+    }
 }
